@@ -28,3 +28,4 @@
 - name: Restart nginx server
   command: service nginx restart
   sudo: yes
+
