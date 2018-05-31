@@ -1,3 +1,4 @@
+
 - name: stop  app
   command: pm2 stop app
   ignore_errors: yes
@@ -27,4 +28,3 @@
 - name: Restart nginx server
   command: service nginx restart
   sudo: yes
-
