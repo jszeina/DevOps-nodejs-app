@@ -1,0 +1,27 @@
+{
+  "name": "app name",
+  "version": "1.0.0",
+  "description": "app description",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next -p 5454",
+    "build": "next build",
+    "start": "NODE_ENV=production node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ add app git repo here"
+  },
+  "author": "auther",
+  "license": "ISC",
+  "bugs": {
+    "url": " git bugs url could be added"
+  },
+  "homepage": " url for the homepage could be added",
+  "dependencies": {
+    "next": "^5.1.0",
+    "react": "^16.3.1",
+    "react-bootstrap": "^0.32.1",
+    "react-dom": "^16.3.1"
+  }
+}
