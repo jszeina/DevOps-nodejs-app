@@ -1,30 +1,28 @@
-
-
 - name: stop  app
   command: pm2 stop app
   ignore_errors: yes
 
- - name: write our nginx config
-   template: src=nginx_app.conf.j2 dest="/etc/nginx/sites-enabled/meedan_client.conf"
-   sudo: yes
-   notify:
+- name: write our nginx config
+  template: src=nginx_app.conf.j2 dest="/etc/nginx/sites-enabled/meedan_client.conf"
+  sudo: yes
+  notify:
     start nginx
     reload nginx
 
- - name: pm2 install
-   command: npm install pm2@latest -g
-   sudo: yes
+- name: pm2 install
+  command: npm install pm2@latest -g
+  sudo: yes
 
- - name: npm install
-   command: chdir={{release_dir}} npm install
-   sudo: yes
+- name: npm install
+  command: chdir={{release_dir}} npm install
+  sudo: yes
 
 - name: build app with npm
   command: chdir={{release_dir}} npm run build
   sudo: yes
 
 - name: start app with pm2
-   command: chdir={{release_dir}} pm2 start npm --name "app" --instances 3 -- start
+  command: chdir={{release_dir}} pm2 start npm --name "app" --instances 3 -- start
 
 - name: Restart nginx server
   command: service nginx restart
